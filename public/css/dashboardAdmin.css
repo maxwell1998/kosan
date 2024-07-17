@@ -1,0 +1,428 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.main {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    background-color: #fafbfe;
+}
+
+#sidebar {
+    width: 70px;
+    min-width: 70px;
+    z-index: 1000;
+    transition: all 0.25s ease-in-out;
+    background-color: #1a4d2e;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar.expand {
+    width: 260px;
+    min-width: 260px;
+}
+
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+}
+
+.toggle-btn i {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.sidebar-logo {
+    margin: auto 0;
+}
+
+.sidebar-logo a {
+    font-family: "Macondo", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f6e9b2;
+}
+
+.sidebar-logo a span {
+    font-family: "Comfortaa", sans-serif;
+    color: #f3ca52;
+}
+
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span {
+    display: none;
+}
+
+.sidebar-nav {
+    padding: 2rem 0;
+    flex: 1 1 auto;
+}
+
+a.sidebar-link {
+    padding: 0.625rem 1.625rem;
+    color: #fff;
+    display: block;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link i {
+    font-size: 1.2rem;
+    margin-right: 0.75rem;
+}
+
+a.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, 0.075);
+    border-left: 3px solid #f3d57a;
+}
+
+.sidebar-item {
+    position: relative;
+}
+
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: #0e2238;
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+}
+
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown + .sidebar-dropdown {
+    display: block;
+    max-height: 15em;
+    width: 100%;
+    opacity: 1;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 0.075rem 0.075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all 0.2s ease-out;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all 0.2s ease-out;
+}
+
+.main {
+    padding: 30px 20px;
+}
+
+/* Beranda Layouts Start */
+.main h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.main .room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+}
+
+.main .room-grid .room {
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.main .room-grid .room-item-active {
+    background-color: lightgreen;
+}
+.main .room-grid .room-item-waiting {
+    background-color: lightblue;
+}
+.main .room-grid .room-item-extend {
+    background-color: rgb(255, 255, 48);
+}
+.main .room-grid .room-item {
+    background-color: rgb(255, 80, 80);
+}
+.main .room-grid .room-item i,
+.main .room-grid .room-item-active i,
+.main .room-grid .room-item-waiting i,
+.main .room-grid .room-item-extend i {
+    font-size: 3rem;
+}
+
+.main .room-grid .room-item h3,
+.main .room-grid .room-item-active h3,
+.main .room-grid .room-item-waiting h3,
+.main .room-grid .room-item-extend h3 {
+    font-weight: 600;
+}
+/* Beranda Layouts End */
+
+/* Penghuni - Keuangan Layouts Start */
+.main .table-huni-container,
+.main .table-waiting-container {
+    overflow: auto;
+}
+
+.main .table-huni-container {
+    margin-bottom: 100px;
+}
+
+.main .table-waiting-container {
+    background-color: rgb(219, 219, 219);
+    padding: 15px 8px;
+    border-radius: 10px;
+}
+
+.main .table-huni-container .table .table-head,
+.main .table-waiting-container .table .table-head,
+.main .table-jenis-container .table .table-head,
+.main .table-jumlah-container .table .table-head,
+.main .table-keuangan-container .table .table-head {
+    color: #f3ca52;
+    background-color: #1a4d2e;
+}
+
+.main .table-huni-container .table .fa-rectangle-list,
+.main .table-waiting-container .table .fa-rectangle-list,
+.main .table-jenis-container .table .fa-file-pen,
+.main .table-jumlah-container .table .fa-file-pen,
+.main .table-keuangan-container .table .fa-file-pen {
+    color: green;
+    font-size: 1.8rem;
+    margin-right: 5px;
+}
+.main .table-huni-container .table .fa-user-slash,
+.main .table-jenis-container .table .fa-trash,
+.main .table-jumlah-container .table .fa-trash,
+.main .table-keuangan-container .table .fa-trash {
+    color: red;
+    font-size: 1.8rem;
+    margin-left: 5px;
+}
+
+.main .table-jenis-container .table .table-foot,
+.main .table-jumlah-container .table .table-foot,
+.main .table-keuangan-container .table .table-foot {
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.main .table-jenis-container .table .table-foot a,
+.main .table-jumlah-container .table .table-foot a,
+.main .table-keuangan-container .table .table-foot a {
+    border-radius: 10px;
+    padding: 10px 30px;
+    background-color: #f3ca52;
+    color: #1a4d2e;
+    transition: 0.5s;
+}
+
+.main .table-jenis-container .table .table-foot a:hover,
+.main .table-jumlah-container .table .table-foot a:hover,
+.main .table-keuangan-container .table .table-foot a:hover {
+    color: #f3ca52;
+    background-color: #1a4d2e;
+}
+/* Penghuni - Keuangan Layouts Ends */
+
+/* Cetegories - Tambah Categories */
+
+.container-tambah {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.container-tambah form {
+    background-color: rgb(221, 221, 221);
+    padding: 20px;
+}
+
+.container-tambah form .input-box {
+    margin-bottom: 10px;
+}
+
+.container-tambah form .kirim-btn {
+    background-color: #1a4d2e;
+    color: #f3ca52;
+    font-weight: 800;
+    transition: 0.3s;
+}
+
+.container-tambah form .kirim-btn:hover {
+    background-color: #f3ca52;
+    color: #1a4d2e;
+}
+
+/* Data Waiting Layouts Start */
+
+.main h1 {
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+.main .container-profil {
+    background-color: rgb(218, 218, 218);
+    width: auto;
+    padding: 25px;
+    border-radius: 15px;
+    font-weight: 500;
+}
+
+.main .container-profil .column {
+    display: flex;
+    margin-bottom: 10px;
+}
+.container-profil .column .label-profil {
+    width: 25%;
+}
+
+.container-profil .column .input-profil {
+    width: auto;
+    padding-left: 10px;
+}
+
+.container-profil .column .input-profil input {
+    width: 70%;
+    padding: 5px 15px;
+    border: 1px solid rgb(167, 167, 167);
+    outline: none;
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+.container-profil .profil-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-profil .profil-button #terima {
+    background-color: #1a4d2e;
+    color: #f3ca52;
+    margin-right: 15px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+.container-profil .profil-button #terima:hover {
+    background-color: #f3ca52;
+    color: #1a4d2e;
+}
+
+.container-profil .profil-button #tolak {
+    background-color: red;
+    color: white;
+    margin-left: 15px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+.container-profil .profil-button #tolak:hover {
+    background-color: rgb(255, 25, 25);
+    color: rgb(3, 3, 3);
+}
+
+.container-profil .profil-button .confirm {
+    margin-left: 5px;
+}
+
+/* Data Waiting Layouts End */
+
+/* Media Queries */
+/* Mobile */
+@media (max-width: 575.98px) {
+    html {
+        font-size: 45%;
+    }
+}
+
+/* Tablet */
+@media (max-width: 991.98px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+/* Laptop */
+@media (max-width: 1199.98px) {
+    html {
+        font-size: 65%;
+    }
+    .main .room-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1199.98px) {
+    html {
+        font-size: 90%;
+    }
+    .main .room-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+}

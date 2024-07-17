@@ -1,0 +1,50 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.main {
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(to left, #f3ca52, #4ad883);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .box-area {
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.container .box-area header {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.container .box-area .prolog p {
+    text-align: justify;
+}
+
+.container .box-area .input-box {
+    margin-bottom: 10px;
+}
+
+.container .box-area .right-box .kirim-btn {
+    background-color: #1a4d2e;
+    color: #f3ca52;
+    font-weight: 800;
+    transition: 0.3s;
+}
+
+.container .box-area .right-box .kirim-btn:hover {
+    background-color: #f3ca52;
+    color: #1a4d2e;
+}
